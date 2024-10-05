@@ -24,6 +24,11 @@ $team = mysqli_fetch_all($query, MYSQLI_ASSOC);
         text-align: center;
     }
 
+    td > a {
+        text-decoration: none;
+        color: red;
+    }
+
 </style>
 <?php
 if ($query) { ?>
@@ -40,6 +45,7 @@ if ($query) { ?>
             <td>NAME</td>
             <td>EMAIL</td>
             <td>DATE</td>
+            <td>DELETE</td>
         </thead>
     <?php foreach ($team as $member) { ?>
         <tr style="background-color: grey; color:aliceblue;">
@@ -47,6 +53,7 @@ if ($query) { ?>
             <td><?php echo $member['name'];  ?></td>
             <td><?php echo $member['email'];  ?></td>
             <td><?php echo $member['date'];  ?></td>
+            <td><a href="/WP/engine/delete.php?id_member=<?php echo $member['id'] ?>">Удалить</a></td>
         </tr>
     <?php } ?>
     </table>
